@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+    <mapper namespace="ssm.mapper.UserMapper">
+    	<resultMap id="BaseResultMap" type="ssm.pojo.User" >
+    		<id column="uId" property="uId" jdbcType="INTEGER" />
+    		<result column="uPassword" property="uPassword" jdbcType="VARCHAR" />
+    		<result column="uEmail" property="uEmail" jdbcType="VARCHAR" />
+
+    		<result column="uTel" property="uTel" jdbcType="VARCHAR" />
+    		<result column="uRegistDate" property="uRegistDate" />
+
+			<result column="smPho" property="smPho" jdbcType="VARCHAR" />
+    		<result column="uName" property="uName" jdbcType="VARCHAR" />
+    		<result column="uGender" property="uGender" jdbcType="VARCHAR" />
+    		<result column="uWord" property="uWord" jdbcType="VARCHAR" />
+    		<result column="uResidence" property="uResidence" jdbcType="VARCHAR" />
+    		<result column="uProfession" property="uProfession" jdbcType="VARCHAR" />
+  		</resultMap>
+  		<sql id="User_Column_List" >
+    		uId, uEmail,  uTel, uRegistDate, smPho ,uName, uGender, uWord, uResidence, uProfession,isLock
+</sql>
+		<sql id="User_Sample_List" >
+			uId, uEmail, uName, uWord
+		</sql>
+    	
+    	<insert id="createUser" parameterType="ssm.pojo.User" >
+            INSERT INTO user (uName ,uPassword,uEmail,uTel,uGender,uRegistDate)
+            	SELECT #{uName} ,#{uPassword} ,#{uEmail} ,#{uTel},#{uGender},#{uRegistDate}
+            	FROM DUAL WHERE NOT EXISTS(SELECT uEmail FROM user WHERE uEmail = #{uEmail})
+</insert>
+         
+        <delete id="deleteUserById" parameterType="java.lang.Integer" >
+            DELETE from user where uId= #{uId}   
+        </delete>
+         
+        <update id="updateUser" parameterType="ssm.pojo.User" >
+            UPDATE user
+		    <set >
+
+				<if test="uTel != null" >
+					uTel = #{uTel,jdbcType=VARCHAR},
+				</if>
+		    	<if test="uName != null" >
+		       		uName = #{uName,jdbcType=VARCHAR},
+		     	</if>
+
+
+		     	<if test="uWord != null" >
+		     		uWord = #{uWord,jdbcType=VARCHAR},
+		     	</if>
+		     	<if test="uResidence != null" >
+		     		uResidence = #{uResidence,jdbcType=VARCHAR},
+		     	</if>
+		     	<if test="uProfession != null" >
+		     		uProfession = #{uProfession,jdbcType=VARCHAR},
+		     	</if>
+		   	</set>
+		   	WHERE uId = #{uId,jdbcType=INTEGER}   
+        </update>
+        
+        <update id="updateUserPassword" parameterType="ssm.pojo.User" >
+            UPDATE user
+		    <set >
+		     	<if test="uPassword != null" >
+		     		uPassword = #{uPassword,jdbcType=VARCHAR},
+		     	</if>
+		   	</set>
+		   	WHERE uId = #{uId,jdbcType=INTEGER}   
+        </update>
+
+		<update id="updatePhoto" parameterType="ssm.pojo.User" >
+			UPDATE user
+			<set >
+				<if test="smPho != null" >
+					smPho = #{smPho,jdbcType=VARCHAR},
+				</if>
+
+			</set>
+			WHERE uId = #{uId,jdbcType=INTEGER}
+		</update>
+
+		<!--查询功能块 -->
+		<select id="queryUserPasswordByuEmail" resultType="java.lang.String" parameterType="java.lang.String">
+			SELECT uPassword FROM user  WHERE uEmail= #{uEmail}
+		</select>
+         <select id="queryIsLockByEmail" resultType="java.lang.Integer" parameterType="java.lang.String">
+             SELECT isLock from user where uEmail=#{uEmail}
+         </select>
+
+		<select id="queryUserByuEmail" resultType="ssm.pojo.User" parameterType="java.lang.String">
+			SELECT <include refid="User_Column_List" /> FROM user  WHERE uEmail= #{uEmail}
+		</select>
+
+        <select id="queryUserById" resultType="ssm.pojo.User" parameterType="java.lang.Integer">
+            SELECT <include refid="User_Column_List" /> FROM user  WHERE uId= #{uId}
+        </select>
+<!--查询feed流的目标用户信息-->
+		<select id="queryFeedUserById" resultType="ssm.pojo.User" parameterType="java.lang.Integer">
+			SELECT <include refid="User_Sample_List" /> FROM user  WHERE uId= #{uId}
+		</select>
+
+
+		<select id="queryUserAuthority" resultType="java.lang.Integer" parameterType="ssm.pojo.User">
+			SELECT authority FROM user  WHERE uId= #{uId}
+		</select>
+
+
+		<select id="queryUserByKeywords" resultType="ssm.pojo.User" parameterType="java.lang.String">
+			SELECT <include refid="User_Column_List" /> FROM user  WHERE uName like CONCAT('%',#{keywords},'%')
+
+		</select>
+
+        <delete id="deleteUser" parameterType="java.lang.Integer">
+            delete from user where uId=#{uId}
+        </delete>
+
+
+         <delete id="batchDelete" parameterType="String">
+             delete from user where uId in
+             <foreach collection="array" item="uId" open="(" close=")" separator=",">#{uId}</foreach>
+         </delete>
+
+        <select id="listUser" resultType="User">
+            SELECT uId, smPho, uName, uGender,uResidence,uEmail,  uTel,isLock  FROM  user
+        </select>
+
+        <update id="updateIsLock">
+            update user set isLock =#{isLock} where uId=#{uId}
+        </update>
+
+		<!--关于parameterType，三种方式，1.包装类，2.使用map传入，3.使用@Param传入 -->
+		<insert id="follow">
+			INSERT INTO user_relation (fromUserId ,toUserId ,relationType)
+			SELECT #{fromUserId} ,#{toUserId} ,#{relationType}
+			FROM DUAL WHERE NOT EXISTS(SELECT * FROM user_relation WHERE fromUserId = #{fromUserId} AND toUserId =
+			#{toUserId} AND relationType = #{relationType})
+		</insert>
+
+		<update id="updateRelation" >
+			UPDATE user_relation
+			<set >
+				<if test="relationType != null" >
+					relationType = #{relationType},
+				</if>
+			</set>
+			WHERE fromUserId = #{fromUserId} AND toUserId = #{toUserId}
+		</update>
+<!--如果不存在，则返回-10-->
+		<select id="queryRelation" resultType="java.lang.Integer">
+			SELECT IFNULL( MAX(relationType) ,-10) FROM user_relation  WHERE fromUserId = #{fromUserId} AND toUserId =
+			#{toUserId}
+		</select>
+
+		<select id="queryFollowing" resultType="java.lang.Integer">
+			SELECT count(*) FROM user_relation  WHERE fromUserId = #{uId} AND relationType = #{relationType}
+		</select>
+		<select id="queryFollowed" resultType="java.lang.Integer">
+			SELECT count(*) FROM user_relation  WHERE toUserId = #{uId} AND relationType = #{relationType}
+		</select>
+
+		<select id="queryFollowingUsers" resultType="ssm.pojo.User">
+			SELECT <include refid="User_Column_List" /> FROM user WHERE uId IN (
+				SELECT toUserId FROM user_relation  WHERE fromUserId = #{uId} AND relationType = #{relationType})
+		</select>
+		<select id="queryFollowedUsers" resultType="ssm.pojo.User">
+			SELECT <include refid="User_Column_List" /> FROM user WHERE uId IN (
+				SELECT fromUserId FROM user_relation  WHERE toUserId = #{uId} AND relationType = #{relationType})
+		</select>
+
+
+    </mapper>
