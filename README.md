@@ -11,4 +11,4 @@
 5、管理员模块完成了上述模块的增删查改，批量删除；以及对用户的封号，禁言等功能；
 6、利用feed流的思想，在首页动态展示所关注人的信息；
 7、使用MyBatis插件PageHelper实现分页；使用redis做评论页面的缓存等。
-![Image text](https://github.com/Rong0912/SSM.wiki.git0511d11..954e17f )
+![Image text](https://github.com/Rong0912/SSM/blob/master/administrator.png )
