@@ -1,4 +1,5 @@
-#基于SSM框架的花椒社区平台的设计与实现   			
+基于SSM框架的花椒社区平台的设计与实现
+=
 开发环境：IDEA + Maven + Druid + Log4j + jdk8
 技术选型：Spring + SpringMVC + MyBaits + MySQL+ Redis
 项目介绍：主要分为用户模块，话题模块，评论模块，随笔模块，管理员模块
