@@ -13,7 +13,10 @@
     7、使用MyBatis插件PageHelper实现分页；使用redis做评论页面的缓存等。<br><br><br>
 
 根据登录用户动态生成关注人的信息<br><br>
-![Image text](https://github.com/Rong0912/SSM/blob/master/index.png)<br><br>
+![Image text](https://github.com/Rong0912/SSM/blob/master/image/index.png)<br><br>
+用户互相关注<br><br>
+![Image text](https://github.com/Rong0912/SSM/blob/master/image/concern.png )<br>
 管理员界面<br><br>
-![Image text](https://github.com/Rong0912/SSM/blob/master/administrator.png )<br>
+![Image text](https://github.com/Rong0912/SSM/blob/master/image/administrator.png )<br>
+
 
