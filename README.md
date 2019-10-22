@@ -16,7 +16,7 @@
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/index.png)<br><br>
 用户互相关注<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/concern.png )<br>
-管理员界面<br><br>
+管理员界面（在浏览器直接输入localhost：8080/YourAnswer/manage即可）<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/administrator.png )<br>
 
 
