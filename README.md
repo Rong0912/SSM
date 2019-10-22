@@ -18,5 +18,6 @@
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/concern.png )<br>
 管理员界面（在浏览器直接输入localhost：8080/YourAnswer/manage即可）<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/administrator.png )<br>
+数据库脚本放在项目的目录上mybatis.sql，在MySQL中执行数据库脚本
 
 
