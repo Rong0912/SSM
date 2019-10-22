@@ -1,3 +1,10 @@
+<%--
+  Created by IntelliJ IDEA.
+  User: Crush
+  Date: 2019/9/2
+  Time: 19:45
+  To change this template use File | Settings | File Templates.
+--%>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%
@@ -27,16 +34,16 @@
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">username</label>
+                        <label class="col-sm-2 control-label">tName</label>
                         <div class="col-sm-10">
-                            <input type="text" name="username" class="form-control" id="username_add_input" placeholder="username">
+                            <input type="text" name="tName" class="form-control" id="username_add_input" >
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">password</label>
+                        <label class="col-sm-2 control-label">tDetail</label>
                         <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control" id="password_add_input" placeholder="****">
+                            <input type="password" name="tDetail" class="form-control" id="password_add_input" >
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -62,23 +69,23 @@
             <div class="modal-body">
                 <form class="form-horizontal">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">userID</label>
+                        <label class="col-sm-2 control-label">topicID</label>
                         <div class="col-sm-10">
-                            <input type="text" name="id" class="form-control" id="userId_modify_input" value="${user.id}" readonly placeholder="userid">
+                            <input type="text" name="id" class="form-control" id="userId_modify_input" value="${topic.tId}" readonly placeholder="userid">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">username</label>
+                        <label class="col-sm-2 control-label">tName</label>
                         <div class="col-sm-10">
-                            <input type="text" name="username" class="form-control" id="username_modify_input" value="${user.username}" placeholder="username">
+                            <input type="text" name="username" class="form-control" id="username_modify_input" value="${topic.tName}" placeholder="username">
                             <span class="help-block"></span>
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label">password</label>
+                        <label class="col-sm-2 control-label">tDetail</label>
                         <div class="col-sm-10">
-                            <input type="password" name="password" class="form-control" id="password_modify_input" value="${user.password}" placeholder="password">
+                            <input  name="password" class="form-control" id="password_modify_input" value="${topic.tDetail}" placeholder="password">
                             <span class="help-block"></span>
                         </div>
                     </div>
@@ -94,44 +101,44 @@
 
 <!-- 搭建显示页面 -->
 
-    <!-- 标题 -->
-   <%-- <div class="row">
+<!-- 标题 -->
+<%-- <div class="row">
 
-    </div>--%>
-    <div style="width: 100%;height: 65px;background-color: #3C94E7">
-        <div class="col-md-12">
-            <h1 style="font-size: 22px;color: white;margin-left: 40px">Community社区管理系统</h1>
-        </div>
+ </div>--%>
+<div style="width: 100%;height: 65px;background-color: #3C94E7">
+    <div class="col-md-12">
+        <h1 style="font-size: 22px;color: white;margin-left: 40px">Community社区管理系统</h1>
     </div>
-    <br>
+</div>
+<br>
 
 <div style="width: 180px;height: 800px ;float: left;padding-left: 10px" class="panel-collapse collapse in">
-     <ul class="list-group">
-         <li class="list-group-item" style="background-color: #F6F4F0">
-             <a href="${pageContext.request.contextPath}/manage">
-                 <span class="glyphicon glyphicon-user"/> 用户管理
-             </a>
-         </li>
+    <ul class="list-group">
+        <li class="list-group-item" >
+            <a href="${pageContext.request.contextPath}/manage">
+                <span class="glyphicon glyphicon-user"/> 用户管理
+            </a>
+        </li>
 
 
-         <li class="list-group-item"  >
-             <a href="${pageContext.request.contextPath}/topicManage">
-             <span class="glyphicon glyphicon-edit"/> 话题管理
-             </a>
-         </li>
+        <li class="list-group-item"  style="background-color: #F6F4F0">
+            <a href="${pageContext.request.contextPath}/topicManage">
+                <span class="glyphicon glyphicon-edit"/> 话题管理
+            </a>
+        </li>
 
-         <li class="list-group-item">
-             <a href="${pageContext.request.contextPath}/questionManage">
-                 <span class="glyphicon glyphicon-check"/> 提问管理
-             </a>
-         </li>
+        <li class="list-group-item">
+            <a href="${pageContext.request.contextPath}/questionManage">
+                <span class="glyphicon glyphicon-check"/> 提问管理
+            </a>
+        </li>
 
-         <li class="list-group-item">
-             <a href="${pageContext.request.contextPath}/essayManage">
-                 <span class="	glyphicon glyphicon-pencil"/> 随笔管理
-             </a>
-         </li>
-     </ul>
+        <li class="list-group-item">
+            <a href="${pageContext.request.contextPath}/essayManage">
+                <span class="	glyphicon glyphicon-pencil"/> 随笔管理
+            </a>
+        </li>
+    </ul>
 
 </div>
 
@@ -141,12 +148,12 @@
     <!-- 按钮 -->
     <div class="row">
         <div class="col-md-4 col-md-offset-8">
-            <%--<button class="btn btn-primary" id="user_add_modal_btn">新增</button>--%>
+            <button class="btn btn-primary" id="user_add_modal_btn">新增</button>
             <button class="btn btn-danger"  id="user_delete_all_btn">批量删除</button>
         </div>
 
         <form class="navbar-form navbar-right" name="loginform" id="loginform" method="post"
-              action="${pageContext.request.contextPath}/searchUserMessage">
+              action="${pageContext.request.contextPath}/selectTopicByKeywords">
             <input type="text" class="form-control" id="keywords" name="keywords" value="" placeholder="搜索">
         </form>
 
@@ -161,14 +168,12 @@
                     <th>
                         <input type="checkbox" id="check_all"/>
                     </th>
-                    <th>ID</th>
-                    <th>头像</th>
-                    <th>昵称</th>
-                    <th>性别</th>
-                    <th>地址</th>
-                    <th>邮箱号</th>
-                    <th>手机号</th>
+                    <th>topicId</th>
+                    <th>话题主题</th>
+                    <th>话题内容</th>
+                    <th>创建时间</th>
                     <th>操作</th>
+
                 </tr>
                 </thead>
                 <tbody>
@@ -196,7 +201,7 @@
     });
     function to_page(pn){
         $.ajax({
-            url:"/YourAnswer/userManage",
+            url:"/YourAnswer/topicPage",
             data:"pn="+pn,
             type:"GET",
             success:function(result){
@@ -215,49 +220,36 @@
     function build_users_table(result){
         //清空table表格
         $("#user_table tbody").empty();
-        var users = result.extend.pageInfo.list;//list<User>users
+        var topics = result.extend.pageInfo.list;//list<User>users
         //index：下标 item：单个对象
-        $.each(users,function(index,user){
-            var checkBoxTd = $("<td><input type='checkbox' name='check-id' value="+user.uId+" class='check_item'/></td>");
-            var uId = $("<td></td>").append(user.uId);
-            var smPho=$("<td></td>").css({"background-image":" url(/tomcat-userPho/"+user.smPho+")","backgroundSize":"30px 30px","background-repeat":"no-repeat"});
-            var uName = $("<td></td>").append(user.uName);
-            var uGender = $("<td></td>").append(user.uGender);
-            var uResidence = $("<td></td>").append(user.uResidence);
-            var uEmail = $("<td></td>").append(user.uEmail);
-            var uTel = $("<td></td>").append(user.uTel);
-            var isLock=user.isLock;
+        $.each(topics,function(index,topic){
+            var checkBoxTd = $("<td><input type='checkbox' name='check-id' value="+topic.tId+" class='check_item'/></td>");
+            var tId = $("<td></td>").append(topic.tId);
+            var tName = $("<td></td>").append(topic.tName);
+            var tDetail = $("<td></td>").append(topic.tDetail);
+            var tMadeDate = $("<td></td>").append(new Date(parseInt(topic.tMadeDate)).toLocaleDateString());
 
-            if(isLock===1){
 
-                var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
-                    .append($("<span></span>").addClass("glyphicon glyphicon-remove")).append("封号");
-                //为编辑按钮添加一个自定义的属性，来表示当前员工id
-                editBtn.attr("edit-id",user.uId);}
-            else{
-                var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
-                    .append($("<span></span>").addClass("glyphicon glyphicon-ok")).append("解封");
-                //为编辑按钮添加一个自定义的属性，来表示当前员工id
-                editBtn.attr("edit-id",user.uId);
-            }
+
+            var editBtn = $("<button></button>").addClass("btn btn-primary btn-sm edit_btn")
+                .append($("<span></span>").addClass("glyphicon glyphicon-pencil")).append("修改");
+            //为编辑按钮添加一个自定义的属性，来表示当前员工id
+            editBtn.attr("edit-id",topic.tId);
 
 
 
             var delBtn =  $("<button></button>").addClass("btn btn-danger btn-sm delete_btn")
                 .append($("<span></span>").addClass("glyphicon glyphicon-trash")).append("删除");
             //为删除按钮添加一个自定义的属性来表示当前删除的员工id
-            delBtn.attr("del-id",user.uId);
+            delBtn.attr("del-id",topic.tId);
             var btnTd = $("<td></td>").append(editBtn).append(" ").append(delBtn);
             //var delBtn =
             //append方法执行完成以后还是返回原来的元素
             $("<tr></tr>").append(checkBoxTd)
-                .append(uId)
-                .append(smPho)
-                .append(uName)
-                .append(uGender)
-                .append(uResidence)
-                .append(uEmail)
-                .append(uTel)
+                .append(tId)
+                .append(tName)
+                .append(tDetail)
+                .append(tMadeDate)
                 .append(btnTd)
                 .appendTo("#user_table tbody");
         });
@@ -359,8 +351,9 @@
             }
         }
         ids=ids.substring(0,ids.length-1);
+        //alert(ids)
         $.ajax({
-            url:"/YourAnswer/batchDelete",
+            url:"/YourAnswer/topicBatchDelete",
             type:"POST",
             data:{"ids":ids},
             success:function (result) {
@@ -375,11 +368,12 @@
 
 
     });
-    //点击保存，保存员工。
+    //点击保存，保存topic
+
     $("#user_save_btn").click(function(){
         //2、发送ajax请求保存员工
         $.ajax({
-            url:"${pageContext.request.contextPath}/add",
+            url:"/YourAnswer/topicAdd",
             type:"POST",
             data:$("#userAddModal form").serialize(),
             success:function(result){
@@ -392,6 +386,7 @@
                     to_page(totalRecord);//保存到最后的那个页面
                 }else{
                     //显示失败信息
+                    alert("保存失败，可能存在相同主题")
                     console.log(result);
                 }
             }
@@ -401,17 +396,17 @@
     //单个删除
     $(document).on("click",".delete_btn",function(){
         //1、弹出是否确认删除对话框
-        var uName = $(this).parents("tr").find("td:eq(3)").text();
+        var uName = $(this).parents("tr").find("td:eq(2)").text();
         var uId = $(this).attr("del-id");
 
         if(confirm("确认删除【"+uName+"】吗？")){
             //确认，发送ajax请求删除即可
             $.ajax({
-                url:"/YourAnswer/delete",
+                url:"/YourAnswer/topicDelete",
                 type:"POST",
                 data:{"id":uId},
                 success:function(result){
-                    alert(result.msg);
+                    //alert(result.msg);
                     if(result.code == 100){
                         to_page(currentPage);
                     }else{
@@ -422,63 +417,41 @@
             });
         }
     });
-    //点击封号
-    $(document).on("click",".edit_btn",function(){
-        var uName = $(this).parents("tr").find("td:eq(3)").text();
-        var Id = $(this).attr("edit-id");
-        $.ajax({
-            url:"/YourAnswer/edit",
-            data:{"uId":Id},
-            type:"POST",
-            success:function(result){
-              if(result==1){
-                  alert(uName+"  解封成功")
-                  to_page(currentPage)
-              }
-              else if(result==0){
-                  alert("已对 "+uName+" 进行封号处理")
-                  to_page(currentPage)
-                }
-              else {
-                    alert("操作失败！")
-                }
-
-            }});
-
-
-    });
 
 
     //点击编辑按钮弹出模态框。
-    /*$(document).on("click",".edit_btn",function(){
+    $(document).on("click",".edit_btn",function(){
         //1、发送ajax,根据id获取用户信息
         //清除表单数据（表单完整重置（表单的数据，表单的样式））
         reset_form("#userModifyModal form");
         var Id = $(this).attr("edit-id");
         $.ajax({
-            url:"${APP_PATH}/edit?id="+Id,
+            url:"${APP_PATH}/topicEdit?id="+Id,
             type:"GET",
             success:function(result){
                 //填充用户信息
                 console.log(result);
 
-                $("#userId_modify_input").val(result.extend.user.id);
-                $("#username_modify_input").val(result.extend.user.username);
-                $("#password_modify_input").val(result.extend.user.password);
+                $("#userId_modify_input").val(result.extend.topic.tId);
+                $("#username_modify_input").val(result.extend.topic.tName);
+                $("#password_modify_input").val(result.extend.topic.tDetail);
             }});
         //2、弹出模态框
         $("#userModifyModal").modal({
             backdrop:"static"
         });
 
-    });*/
+    });
 
     //保存修改
     $("#user_modify_btn").click(function(){
         $.ajax({
-            url:"${pageContext.request.contextPath}/update",
+            url:"${pageContext.request.contextPath}/topicUpdate",
             type:"POST",
-            data:$("#userModifyModal form").serialize(),
+            data:{"tId":$("#userId_modify_input").val(),
+                    "tName":$("#username_modify_input").val(),
+                    "tDetail":$("#password_modify_input").val()
+            },
             success:function(result){
                 //alert(result.msg);
                 if(result.code == 100){
