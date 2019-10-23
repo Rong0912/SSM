@@ -18,7 +18,7 @@
    3.为项目目录中的/userPho在tomcat下配置虚拟图片目录/tomcat-userPho  <br>
    4.管理员界面在浏览器直接输入localhost：8080/YourAnswer/manage即可
 ## 项目展示<br>
-根据登录用户动态生成关注人的信息<br><br><br>
+根据登录用户动态生成关注人的信息<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/index.png)<br><br>
 用户互相关注<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/concern.png )<br><br>
