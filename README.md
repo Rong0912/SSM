@@ -13,6 +13,7 @@
     7、使用MyBatis插件PageHelper实现分页；使用redis做评论页面的缓存等。
 数据库脚本放在项目的目录上mybatis.sql，在MySQL中执行数据库脚本<br><br>
 redis的安装和打开服务参考https://www.runoob.com/redis/redis-install.html<br><br>
+#项目展示
 根据登录用户动态生成关注人的信息<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/index.png)<br><br>
 用户互相关注<br><br>
