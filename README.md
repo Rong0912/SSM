@@ -13,15 +13,16 @@
     6、利用feed流的思想，在首页动态展示所关注人的信息；
     7、使用MyBatis插件PageHelper实现分页；使用redis做评论页面的缓存等。
 ## 注意事项<br>
-1.数据库脚本放在项目的目录上mybatis.sql，在MySQL中执行数据库脚本<br>
-2.redis的安装和打开服务参考https://www.runoob.com/redis/redis-install.html<br>
-3.为项目目录中的/userPho在tomcat下配置虚拟图片目录/tomcat-userPho  <br>
+   1.数据库脚本放在项目的目录上mybatis.sql，在MySQL中执行数据库脚本<br>
+   2.redis的安装和打开服务参考https://www.runoob.com/redis/redis-install.html<br>
+   3.为项目目录中的/userPho在tomcat下配置虚拟图片目录/tomcat-userPho  <br>
+   4.管理员界面在浏览器直接输入localhost：8080/YourAnswer/manage即可
 ## 项目展示<br>
 根据登录用户动态生成关注人的信息<br><br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/index.png)<br><br>
 用户互相关注<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/concern.png )<br><br>
-管理员界面（在浏览器直接输入localhost：8080/YourAnswer/manage即可）<br><br>
+后台界面<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/administrator.png )
 
 
