@@ -1,9 +1,9 @@
 基于SSM框架的花椒社区平台的设计与实现
 =
 ## 基本介绍
-开发环境：IDEA + Maven + Druid + Log4j + jdk8<br>
-技术选型：Spring + SpringMVC + MyBaits + MySQL+ Redis<br>
-项目介绍：主要分为用户模块，话题模块，评论模块，随笔模块，管理员模块<br>
+开发环境：IDEA + Maven + Druid + Log4j + jdk8<br><br>
+技术选型：Spring + SpringMVC + MyBaits + MySQL+ Redis<br><br>
+项目介绍：主要分为用户模块，话题模块，评论模块，随笔模块，管理员模块<br><br>
 
     1、用户模块实现了拥护注册、登陆、更新信息、修改密码 以及用户间互相关注等功能；
     2、话题模块实现了话题的分类，以及用户对话题的关注；
@@ -12,11 +12,11 @@
     5、管理员模块完成了上述模块的增删查改，批量删除；以及对用户的封号，禁言等功能；
     6、利用feed流的思想，在首页动态展示所关注人的信息；
     7、使用MyBatis插件PageHelper实现分页；使用redis做评论页面的缓存等。
-## 注意事项<br>
-   1.数据库脚本放在项目的目录上mybatis.sql，在MySQL中执行数据库脚本<br>
-   2.redis的安装和打开服务参考https://www.runoob.com/redis/redis-install.html<br>
-   3.为项目目录中的/userPho在tomcat下配置虚拟图片目录/tomcat-userPho  <br>
-   4.管理员界面在浏览器直接输入localhost：8080/YourAnswer/manage即可
+## 快速部署<br>
+   1.数据库脚本放在项目的目录上mybatis.sql，在MySQL中执行数据库脚本<br><br><br>
+   2.redis的安装和打开服务参考https://www.runoob.com/redis/redis-install.html<br><br>
+   3.为项目目录中的/userPho在tomcat下配置虚拟图片目录/tomcat-userPho  <br><br>
+   4.管理员界面在浏览器直接输入localhost：8080/YourAnswer/manage即可<br>
 ## 项目展示<br>
 根据登录用户动态生成关注人的信息<br><br>
 ![Image text](https://github.com/Rong0912/SSM/blob/master/image/index.png)<br><br>
