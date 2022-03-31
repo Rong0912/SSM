@@ -19,7 +19,7 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
     <!-- spring版本号 -->
-    <spring.version>4.2.5.RELEASE</spring.version>
+    <spring.version>5.3.18</spring.version>
     <!--模板引擎-->
     <thymeleaf.version>3.0.11.RELEASE</thymeleaf.version>
     <!-- mybatis版本号 -->
